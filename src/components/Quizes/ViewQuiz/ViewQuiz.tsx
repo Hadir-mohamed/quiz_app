@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { Radio, Button } from "antd";
+import { Radio, Button,notification } from "antd";
 import { Answer, Question, Quiz } from "../../../types/Quizes";
 import './ViewQuiz.scss'
 
@@ -16,17 +16,22 @@ export default function ViewQuiz({ selectedQuiz }: ViewQuizProps) {
 
     const handleAnswerChange = (event: any) => {
         const values = event.target.value.split("_")
-        if(answersIdRef.current.includes(values[0]) === true){
+        if (answersIdRef.current.includes(values[0]) === true) {
             answersIdRef.current = answersIdRef.current.filter(item => item !== values[0])
         }
         if (values[2] === "false") {
-            scoreValue.current++;
             answersIdRef.current.push(values[0])
+        } else{
+            scoreValue.current++;         
         }
     }
     const handleSubmitAnswer = () => {
         calculateScore(scoreValue.current)
         setAnswersId(answersIdRef.current)
+        notification.success({
+            message: 'Success',
+            description:'Completed Quiz Successfully',
+        });
     }
 
     return (
@@ -48,7 +53,11 @@ export default function ViewQuiz({ selectedQuiz }: ViewQuizProps) {
                                     <Radio value={`${question.id}_${answer.id}_${answer.isTrue}`}> {answer.text} </Radio>
                                 )}
                             </Radio.Group>
-                            {question.id && answersId.length > 0 && (answersId.includes(question.id?.toString()) === true ? <p className="wrong-feedback">{question.feedbackFalse}</p> : <p className="right-feedback">{question.feedbackTrue}</p>)}
+                            {question.id && (answersId.length > 0 || score > 0) &&
+                                (answersId.includes(question.id?.toString()) === true ?
+                                    <p className="wrong-feedback">{question.feedbackFalse}</p> :
+                                    <p className="right-feedback">{question.feedbackTrue}</p>
+                                )}
                         </div>
                     )
                 }
