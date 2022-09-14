@@ -44,6 +44,7 @@ function CreateQuiz({
             quizValues.current = quizDefaultValues
             setQuestions(quizDefaultValues.questions)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [editableQuiz])
 
     const handleFieldChange = (e: any) => {
