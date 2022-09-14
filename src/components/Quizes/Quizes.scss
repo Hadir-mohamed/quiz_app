@@ -1,0 +1,19 @@
+.quizes {
+    text-align: center;
+    min-height: 100%;
+    padding: 10px;
+
+    .quizes-wrapper {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 2fr;
+        text-align: left;
+        height: calc(100vh - 100px);
+    }
+}
+
+.quiz-info {
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    padding: 10px;
+}

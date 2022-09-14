@@ -1,0 +1,44 @@
+.questions-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.answers-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.quiz-form {
+    text-align: center;
+
+    .ant-form-item-label>label {
+        width: 160px;
+    }
+
+    .questions-wrapper {
+        text-align: left;
+
+        .anticon-plus-circle {
+            font-size: x-large;
+            cursor: pointer;
+            color: #1890ff;
+        }
+        h4{
+            margin-bottom: 20px;
+        }
+
+    }
+
+    .btns-wrapper{
+        display: flex;
+        justify-content: end;
+        .ant-form-item-control-input-content{
+           display: flex;
+           gap:10px;
+           button{
+               width: 150px;
+           }
+       }
+    }
+}

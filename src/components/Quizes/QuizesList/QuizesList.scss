@@ -1,0 +1,50 @@
+.quizes-list {
+    border: 1px solid #dfdfdf;
+    border-radius: 8px;
+    padding: 10px;
+
+    header {
+        padding: 9px 7px;
+        background-color: #d8e8e6;
+        border-radius: 5px;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 92%;
+        padding: 12px 7px 4px;
+        position: relative;
+
+        ul {
+            list-style: none;
+            padding-left: 5px;
+
+            li {
+                display: flex;
+                justify-content: space-between;
+                padding: 5px;
+                border: 1px solid #dfdfdf;
+                margin-bottom: 4px;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                }
+
+                .anticon {
+                    padding-left: 5px;
+                }
+            }
+        }
+
+        .info {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 13px;
+        }
+    }
+}

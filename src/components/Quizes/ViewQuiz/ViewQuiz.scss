@@ -1,0 +1,40 @@
+.quiz-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .quiz-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        align-items: baseline;
+        width: 100%;
+    }
+
+    .questions-list {
+        margin-bottom: 10px;
+        position: relative;
+
+        .wrong-feedback, .right-feedback {
+            font-size: 11px;
+            position: absolute;
+            right: 0;
+            bottom: -29px;
+        }
+        .wrong-feedback{
+            color: #c10303;
+        }
+        .right-feedback{
+            color: #086d05;
+
+        }
+        .ant-radio-group{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    button {
+        align-self: flex-end;
+    }
+}
