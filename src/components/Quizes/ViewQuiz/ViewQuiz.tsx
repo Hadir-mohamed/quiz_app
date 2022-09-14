@@ -11,7 +11,6 @@ interface ViewQuizProps {
 export default function ViewQuiz({ selectedQuiz }: ViewQuizProps) {
     const [score, calculateScore] = useState(0)
     const [answersId, setAnswersId] = useState<string[]>([])
-    const scoreValue = useRef<number>(0)
     const answersIdRef = useRef<string[]>([])
 
     const handleAnswerChange = (event: any) => {
@@ -21,12 +20,11 @@ export default function ViewQuiz({ selectedQuiz }: ViewQuizProps) {
         }
         if (values[2] === "false") {
             answersIdRef.current.push(values[0])
-        } else{
-            scoreValue.current++;         
         }
     }
+
     const handleSubmitAnswer = () => {
-        calculateScore(scoreValue.current)
+        calculateScore(selectedQuiz.questions.length -  answersIdRef.current.length)
         setAnswersId(answersIdRef.current)
         notification.success({
             message: 'Success',
