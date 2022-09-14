@@ -11,6 +11,7 @@ function Quizes({
   formIsHidden,
   addNewQuizForm,
   selectQuiz,
+  selectedQuizId,
 }: any) {
   const [buttonIsHidden, setButtonIsHidden] = useState(false);
   const [Quizs, setQuizs] = useState<Quiz[]>([]);;
@@ -47,21 +48,22 @@ function Quizes({
     <aside className="quizes-list">
       <header>Quizs</header>
       <section>
-          <ul>
-            {Quizs.map((Quiz: Quiz) => (
-              <li
-                onClick={() => handleSelectQuiz(Quiz)}
-                key={Quiz.id}
-              >
-                <span>{Quiz.title}</span>
-                <span>
-                  {!buttonIsHidden && (
-                    <EditOutlined onClick={() => handleQuizEditing(Quiz)} />
-                  )}
-                </span>
-              </li>
-            ))}
-          </ul>
+        <ul>
+          {Quizs.map((Quiz: Quiz) => (
+            <li
+              onClick={() => handleSelectQuiz(Quiz)}
+              key={Quiz.id}
+              className={`${Quiz.id === selectedQuizId ? "selected" : ""}`}
+            >
+              <span>{Quiz.title}</span>
+              <span>
+                {!buttonIsHidden && (
+                  <EditOutlined onClick={() => handleQuizEditing(Quiz)} />
+                )}
+              </span>
+            </li>
+          ))}
+        </ul>
         {!buttonIsHidden && !addNewQuizForm && (
           <Button type="primary" onClick={addNewQuiz}>
             Add Quiz

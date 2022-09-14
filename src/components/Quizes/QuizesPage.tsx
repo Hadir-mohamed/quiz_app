@@ -73,6 +73,7 @@ function QuizsPage() {
           formIsHidden={formIsHidden}
           addNewQuizForm={addNewQuizForm}
           selectQuiz={selectQuiz}
+          selectedQuizId={selectedQuiz?.id}
         />
         <div className="quiz-info">
         {addNewQuizForm ? (
